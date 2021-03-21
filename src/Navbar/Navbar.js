@@ -17,7 +17,7 @@ import account from "../img/account.png"
 import calendar from "../img/calendar.png"
 import multimedia from "../img/multimedia.png"
 
-const Navbar = () => {
+const Navbar = ({param}) => {
     return (
         <div className="nav-container">
             <div className="logo">
@@ -27,13 +27,18 @@ const Navbar = () => {
 
             <ul className="routes">
                 <li>
-                    <Link className="cur-route" to="/"><img src={home} alt="" />Home</Link>
+                    <Link className={
+                        (param === "") ? "cur-route" : ""
+                    } to="/"><img src={home} alt="" />Home</Link>
                 </li>
                 <li>
                     <Link to="/"><img src={notice} alt="" />Notice Board</Link>
                 </li>
                 <li>
-                    <Link to="/attendance"><img src={attendance} alt="" />Attendance</Link>
+                    <Link to="/attendance" className={
+                        (param === "attendance") ? "cur-route" : ""
+                    }
+                    ><img src={attendance} alt="" />Attendance</Link>
                 </li>
                 <li>
                     <Link to="/"><img src={fees} alt="" />Fees Details</Link>

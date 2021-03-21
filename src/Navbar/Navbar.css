@@ -1,7 +1,8 @@
 .nav-container{
-    padding: 20px 20px 10px 0;
+    padding: 20px 20px 0 0;
     border-right: 1px solid rgb(216, 216, 216);
     min-width: 240px;
+    position: relative;
 }
 
 .logo{
@@ -17,7 +18,7 @@
 }
 
 .routes li{
-    margin-bottom: 4px;
+    margin-bottom: 10px;
 }
 
 .routes li a{
@@ -33,7 +34,8 @@
 }
 
 .routes li a img{
-    filter: invert(26%);
+    filter: invert(36%);
+    width: 16px;
 }
 
 .routes li a:hover{
@@ -42,18 +44,28 @@
 }
 
 .cur-route{
-    background-color: blue;
-}
-
-.cur-route{
+    background: #045DE9;
     color: white !important;
 }
 
+.cur-route:hover{
+    background-color: #045DE9 !important;
+}
+
+.cur-route img{
+    filter: invert(0%) !important;
+    filter: saturate(9); 
+}
+
 .profile{
+    width: 220px;
+    position: fixed;
+    bottom: 0;
+    left: 0;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 14px;
+    margin: 14px;
 }
 
 .profile .text p{

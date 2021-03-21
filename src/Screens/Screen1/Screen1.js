@@ -1,4 +1,5 @@
-import React from 'react'
+import React, {useEffect} from 'react'
+import {useHistory} from 'react-router-dom'
 import "./Screen1.css"
 import NotificationsNoneIcon from '@material-ui/icons/NotificationsNone';
 import SearchIcon from '@material-ui/icons/Search';
@@ -6,14 +7,13 @@ import DateRangeIcon from '@material-ui/icons/DateRange';
 import KeyboardArrowRightIcon from '@material-ui/icons/KeyboardArrowRight';
 import { IconButton } from '@material-ui/core';
 import Calendar from '../../Calendar/Calendar';
-import { Doughnut, Label } from 'react-chartjs-2'
-import CustomLabel from './CustomLabel';
+import { Doughnut} from 'react-chartjs-2'
+import ChevronRightIcon from '@material-ui/icons/ChevronRight';
+const Screen1 = ({setParam}) => {
+    let h = useHistory().location.pathname
 
-const Screen1 = () => {
-
-
-
-
+    h = h.split("/");
+    useEffect(() => setParam(h[1]), [])
 
     const info = {
         labels: ['Present(%)', 'Absent(%)'],
@@ -72,6 +72,7 @@ const Screen1 = () => {
                     <IconButton>
                         <NotificationsNoneIcon />
                     </IconButton>
+                    <p className="noti">2</p>
                 </div>
             </div>
 
@@ -124,10 +125,18 @@ const Screen1 = () => {
                             </div>
                         </div>
                     </div>
+                    <div className="expand">
+                        Expand
+                        <ChevronRightIcon />
+                    </div>
                 </div>
 
                 <div className="calendar">
                     <Calendar />
+                    <div className="expand">
+                        Expand
+                        <ChevronRightIcon />
+                    </div>
                 </div>
             </div>
         </div>
