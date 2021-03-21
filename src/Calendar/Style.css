@@ -1,0 +1,117 @@
+.calendar-container {
+  background-color: white;
+  padding: 20px;
+  position: relative;
+  margin: auto;
+}
+
+.restore {
+  position: absolute !important;
+  top: 0;
+  left: 0;
+}
+
+.cal-header {
+  font-size: 18px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.cal-container {
+  text-align: center;
+}
+
+.days {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  justify-content: space-between;
+  font-size: 14px;
+  margin-top: 30px;
+}
+
+.cur-day {
+  color: rgb(248, 38, 83);
+  font-weight: 600;
+}
+
+.months {
+  width: fit-content;
+  margin-top: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  color: grey;
+}
+.months p{
+  margin-bottom: 4px;
+  user-select: none;
+}
+
+.controller{
+  padding: 0;
+  cursor: pointer !important;
+  font-size: 20px !important;
+  color: grey;
+}
+
+.dates {
+  margin-top: 20px;
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  row-gap: 6px;
+  justify-content: space-between;
+  font-size: 12px;
+}
+
+.dates div {
+  cursor: pointer;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.dates div p {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: 0.5s;
+}
+
+.dates p:hover {
+  background-color: rgba(255, 130, 157, 0.678);
+  color: black;
+  transform: scale(1.5);
+}
+
+.cur-date {
+  background-color: rgb(248, 38, 83);
+  color: white;
+}
+.selected-date {
+  background-color: rgba(255, 130, 157, 0.678);
+  color: black;
+}
+.invalid-date {
+  background-color: rgb(216, 216, 216);
+  cursor: not-allowed;
+}
+
+.select-btn {
+  background-color: rgb(248, 38, 83);
+  color: white;
+  padding: 6px;
+  border: 0;
+  outline: 0;
+  font-size: 14px;
+  border-radius: 4px;
+  margin-top: 10px;
+  cursor: pointer;
+}
