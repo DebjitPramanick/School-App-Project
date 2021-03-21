@@ -4,6 +4,8 @@ import logo from "../img/logo.png"
 import { Avatar } from '@material-ui/core'
 import ExpandLessIcon from '@material-ui/icons/ExpandLess';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
+import { Link } from "react-router-dom";
+import home from "../img/home.png"
 
 const Navbar = () => {
     return (
@@ -14,50 +16,56 @@ const Navbar = () => {
 
 
             <ul className="routes">
-                <li className="cur-route">
-                    Home
+                <li>
+                    <Link className="cur-route" to="/">
+                        <img src={home} alt="" />
+                        Home
+                    </Link>
                 </li>
                 <li>
-                    Notice Board
+                    <Link to="/">
+                        <img src={home} alt="" />
+                        Notice Board
+                    </Link>
                 </li>
                 <li>
-                    Attendance
+                    <Link to="/attendance"><img src={home} alt="" />Attendance</Link>
                 </li>
                 <li>
-                    Fees Details
+                    <Link to="/"><img src={home} alt="" />Fees Details</Link>
                 </li>
                 <li>
-                    Calendar
+                    <Link to="/"><img src={home} alt="" />Calendar</Link>
                 </li>
                 <li>
-                    Multimedia
+                    <Link to="/"><img src={home} alt="" />Multimedia</Link>
                 </li>
                 <li>
-                    Time Tables
+                    <Link to="/"><img src={home} alt="" />Time Tables</Link>
                 </li>
                 <li>
-                    Schedules
+                    <Link to="/"><img src={home} alt="" />Schedules</Link>
                 </li>
                 <li>
-                    Support Requests
+                    <Link to="/"><img src={home} alt="" />Support Requests</Link>
                 </li>
                 <li>
-                    Support
+                    <Link to="/"><img src={home} alt="" />Support</Link>
                 </li>
                 <li>
-                    Account
+                    <Link to="/"><img src={home} alt="" />Account</Link>
                 </li>
             </ul>
 
             <div className="profile">
-                <Avatar src="https://i.pinimg.com/originals/51/f6/fb/51f6fb256629fc755b8870c801092942.png"/>
+                <Avatar src="https://i.pinimg.com/originals/51/f6/fb/51f6fb256629fc755b8870c801092942.png" />
                 <div className="text">
                     <h4>Fr. Paul D'Souza</h4>
                     <p>Admin Account</p>
                 </div>
                 <div className="actions">
-                    <ExpandLessIcon/>
-                    <ExpandMoreIcon/>
+                    <ExpandLessIcon />
+                    <ExpandMoreIcon />
                 </div>
             </div>
         </div>

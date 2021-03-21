@@ -18,21 +18,34 @@
 
 .routes li{
     margin-bottom: 12px;
+}
+
+.routes li a{
+    display: flex;
     color: grey;
     padding: 18px 14px;
     font-size: 14px;
     cursor: pointer;
-    transition: 0.5s;
     border-radius: 0 16px 16px 0;
+    transition: 0.5s;
+    align-items: center;
+    column-gap: 10px;
 }
 
-.routes li:hover{
+.routes li a img{
+    filter: invert(26%);
+}
+
+.routes li a:hover{
     background-color: rgb(207, 207, 207);
     color: black;
 }
 
 .cur-route{
     background-color: blue;
+}
+
+.cur-route{
     color: white !important;
 }
 

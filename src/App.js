@@ -14,7 +14,7 @@ const App = () => {
                     <Route path="/" exact>
                         <Screen1 />
                     </Route>
-                    <Route path="/screen2" exact>
+                    <Route path="/attendance" exact>
                         <Screen2 />
                     </Route>
                 </Switch>

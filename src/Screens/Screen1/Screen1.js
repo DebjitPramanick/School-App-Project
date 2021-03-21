@@ -6,9 +6,14 @@ import DateRangeIcon from '@material-ui/icons/DateRange';
 import KeyboardArrowRightIcon from '@material-ui/icons/KeyboardArrowRight';
 import { IconButton } from '@material-ui/core';
 import Calendar from '../../Calendar/Calendar';
-import { Doughnut } from 'react-chartjs-2'
+import { Doughnut, Label } from 'react-chartjs-2'
+import CustomLabel from './CustomLabel';
 
 const Screen1 = () => {
+
+
+
+
 
     const info = {
         labels: ['Present(%)', 'Absent(%)'],
@@ -19,7 +24,14 @@ const Screen1 = () => {
                 borderColor: '#8B8680',
                 data: [1025, 21]
             }
-        ]
+        ],
+    }
+
+    const options = {
+        legend: {
+            display: false
+        },
+        cutoutPercentage: 60,
     }
 
     const allCards = [
@@ -91,11 +103,26 @@ const Screen1 = () => {
                             <h4>Attendance</h4>
                             <p>Today overall attendance.</p>
                         </div>
-                        <DateRangeIcon className="icon"/>
+                        <DateRangeIcon className="icon" />
                     </div>
 
                     <div className="chart">
-                        <Doughnut data={info} />
+                        <Doughnut data={info} options={options} />
+
+                        <div className="legends">
+                            <div>
+                                <h4>Present (%)</h4>
+                                <p>98%</p>
+                            </div>
+                            <div>
+                                <h4>Absent (%)</h4>
+                                <p>02%</p>
+                            </div>
+                            <div>
+                                <h4>Absent</h4>
+                                <p>21</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
 

@@ -68,7 +68,7 @@
 }
 
 .container2 {
-  margin-top: 100px;
+  margin-top: 80px;
   display: flex;
   column-gap: 16px;
 }
@@ -98,8 +98,30 @@
 }
 
 .stat .chart {
-  margin: 40px auto;
-  max-width: 600px;
+  margin: 40px auto 20px auto;
+  max-width: 500px;
+  position: relative;
+}
+
+
+.legends{
+    margin-top: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.legends div:nth-child(1) p{
+    color: rgb(129, 0, 129);
+    font-weight: bold;
+}
+.legends div:nth-child(2) p{
+    color: rgb(252, 29, 77);
+    font-weight: bold;
+}
+.legends div:nth-child(3) p{
+    color: rgb(252, 29, 77);
+    font-weight: bold;
 }
 
 .calendar{

@@ -6,5 +6,9 @@
 
 .container{
     display: flex;
-    
+}
+
+a{
+    color: grey;
+    text-decoration: none;
 }
