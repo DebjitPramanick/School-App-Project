@@ -7,82 +7,112 @@
   font-size: 44px;
 }
 
-
-.drop-downs{
-    display: flex;
-    align-items: center;
-    column-gap: 16px;
+.drop-downs {
+  display: flex;
+  align-items: center;
+  column-gap: 16px;
 }
 
-.drop-downs .select-container{
-    padding: 8px;
-    background: #0d0d0dbb;
-    color: white;
-    border-radius: 30px;
+.drop-downs .select-container {
+  padding: 8px;
+  background: #0d0d0dbb;
+  color: white;
+  border-radius: 30px;
 }
-.select-container select{
-    background: transparent;
-    color: white;
-    border: 0;
-    outline: 0;
-    font-size: 16px;
-    cursor: pointer;
+.select-container select {
+  background: transparent;
+  color: white;
+  border: 0;
+  outline: 0;
+  font-size: 16px;
+  cursor: pointer;
 }
-.select-container option{
-    background: #0d0d0dbb;
-    color: white;
-}
-
-
-.record-attendance{
-    margin-top: 60px;
+.select-container option {
+  background: #0d0d0dbb;
+  color: white;
 }
 
-.record{
-    display: flex;
-    align-items: center;
-    column-gap: 14px;
-    margin: 18px 0;
+.cal-row-container {
+  margin-top: 40px;
+  width: fit-content;
+  display: flex;
+  align-items: center;
+  column-gap: 4px;
 }
 
-.period{
-    width: 50px;
-    height: 50px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 50%;
-    background-color: rgb(0, 162, 255);
-    color: white;
-    text-align: center;
-    font-size: 12px;
+.cal-row-container .col {
+  text-align: center;
+  cursor: pointer;
+  color: rgb(102, 102, 102);
+  font-size: 12px;
+  padding: 12px 6px;
+  min-width: 26px;
+  transition: 0.5s;
 }
 
-.teacher-name{
-    min-width: 180px;
-    background-color: rgb(214, 214, 214);
-    padding: 8px 14px;
-    font-size: 18px;
-    border-radius: 4px;
+.cal-row-container .col.cur {
+  background-color: blue;
+  color: white !important;
+  border-radius: 10px;
 }
 
-.record-attendance button{
-    border: 1px solid rgb(204, 204, 204);
-    outline: 0;
-    border-radius: 30px;
-    padding: 8px 14px;
-    font-size: 16px;
-    cursor: pointer;
-    background-color: transparent;
-    transition: 1s;
+.cal-row-container .col.selected {
+  background-color: lightblue;
+  border-radius: 10px;
 }
 
-.present{
-    background: #0AC10A !important;
-    color: white;
-}
-.absent{
-    background: #D00D0D !important;
-    color: white;
+.cal-row-container .col #date {
+  margin-bottom: 15px;
 }
 
+.record-attendance {
+  margin-top: 30px;
+}
+
+.record {
+  display: flex;
+  align-items: center;
+  column-gap: 14px;
+  margin: 18px 0;
+}
+
+.period {
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background-color: rgb(0, 162, 255);
+  color: white;
+  text-align: center;
+  font-size: 12px;
+}
+
+.teacher-name {
+  min-width: 180px;
+  background-color: rgb(214, 214, 214);
+  padding: 8px 14px;
+  font-size: 18px;
+  border-radius: 4px;
+}
+
+.record-attendance button {
+  border: 1px solid rgb(204, 204, 204);
+  outline: 0;
+  border-radius: 30px;
+  padding: 8px 14px;
+  font-size: 16px;
+  cursor: pointer;
+  background-color: transparent;
+  transition: 1s;
+}
+
+.present {
+  background: #0ac10a !important;
+  color: white;
+}
+.absent {
+  background: #d00d0d !important;
+  color: white;
+}

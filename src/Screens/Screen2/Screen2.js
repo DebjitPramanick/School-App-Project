@@ -12,9 +12,29 @@ const Screen2 = ({ setParam }) => {
     h = h.split("/");
     useEffect(() => setParam(h[1]), [])
 
+
+    const curM = new Date().getMonth()
+    const curD = new Date().getDate()
+    const curDy = new Date().toString().slice(0,3);
+    const lastDate = new Date(2021, curM+1, 0).getDate();
+    const firstDate = new Date(2021, curM, 1).getDate();
+
+    const dateArray = [];
+
+    let i = firstDate;
+
+    while (i <= lastDate) {
+        const date = new Date(2021, curM, i).getDate();
+        const day = new Date(2021, curM, i).toString().slice(0, 3);
+        const obj = { date, day };
+        dateArray.push(obj);
+        i++;
+    }
+
     const [present, setPresent] = useState(JSON.parse(localStorage.getItem('present')) || [])
     const [absent, setAbsent] = useState(JSON.parse(localStorage.getItem('absent')) || [])
-    const [dates, setDates] = useState([])
+    const [dates, setDates] = useState(dateArray)
+    const [selected, setSelected] = useState([])
 
     const handlePresent = (id) => {
         if (present.includes(id)) {
@@ -48,8 +68,8 @@ const Screen2 = ({ setParam }) => {
             let i = firstDate;
 
             while (i <= lastDate) {
-                const date = new Date(2021, month-1, i).getDate();
-                const day = new Date(2021, month-1, i).toString().slice(0, 3);
+                const date = new Date(2021, month - 1, i).getDate();
+                const day = new Date(2021, month - 1, i).toString().slice(0, 3);
                 const obj = { date, day };
                 dateArray.push(obj);
                 i++;
@@ -58,7 +78,17 @@ const Screen2 = ({ setParam }) => {
         }
     }
 
-    console.log(dates)
+    const handleSelect = (d,i) => {
+        if(selected.includes(i)){
+            const array = selected.filter(s => s!==i);
+            setSelected(array)
+        }
+        else{
+            setSelected(s=>[...s,i])
+        }
+    } 
+
+    console.log(selected)
 
     useEffect(() => {
         localStorage.setItem("present", JSON.stringify(present))
@@ -92,10 +122,22 @@ const Screen2 = ({ setParam }) => {
                     <div className="select-container">
                         <select name={d.type} id={d.type}
                             onChange={(e) => handleShow(d.type, e)}>
-                            {d.options.map((op,i) => (
+                            {d.options.map((op, i) => (
                                 <option value={i}>{op}</option>
                             ))}
                         </select>
+                    </div>
+                ))}
+            </div>
+
+
+            <div className="cal-row-container">
+                {dates.map((d,i) => (
+                    <div className={`col ${(d.date === curD && d.day === curDy) ? 'cur' : 
+                    (selected.includes(i)) ? 'selected' : ''}`}
+                    onClick={() => handleSelect(d,i)}>
+                        <p id="date">{d.date}</p>
+                        <p id="day">{d.day}</p>
                     </div>
                 ))}
             </div>
