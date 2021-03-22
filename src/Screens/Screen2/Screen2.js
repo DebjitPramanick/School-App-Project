@@ -1,4 +1,4 @@
-import React, { useEffect,useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useHistory } from 'react-router-dom'
 import "./Screen2.css"
 import { IconButton } from '@material-ui/core';
@@ -14,27 +14,51 @@ const Screen2 = ({ setParam }) => {
 
     const [present, setPresent] = useState(JSON.parse(localStorage.getItem('present')) || [])
     const [absent, setAbsent] = useState(JSON.parse(localStorage.getItem('absent')) || [])
+    const [dates, setDates] = useState([])
 
     const handlePresent = (id) => {
-        if(present.includes(id)){
-            const newList = present.filter(p => p!== id);
+        if (present.includes(id)) {
+            const newList = present.filter(p => p !== id);
             setPresent(newList)
         }
-        else{
-           setPresent(p => [...p,id]) 
+        else {
+            setPresent(p => [...p, id])
         }
     }
 
     const handleAbsent = (id) => {
-        if(absent.includes(id)){
-            const newList = absent.filter(p => p!== id);
+        if (absent.includes(id)) {
+            const newList = absent.filter(p => p !== id);
             setAbsent(newList)
         }
-        else{
-           setAbsent(a=>[...a,id]) 
+        else {
+            setAbsent(a => [...a, id])
         }
-        
     }
+
+    const handleShow = (type, e) => {
+
+        if (type === "Months") {
+            const month = e.target.value;
+            const lastDate = new Date(2021, month, 0).getDate();
+            const firstDate = new Date(2021, month, 1).getDate();
+
+            const dateArray = [];
+
+            let i = firstDate;
+
+            while (i <= lastDate) {
+                const date = new Date(2021, month-1, i).getDate();
+                const day = new Date(2021, month-1, i).toString().slice(0, 3);
+                const obj = { date, day };
+                dateArray.push(obj);
+                i++;
+            }
+            setDates(dateArray)
+        }
+    }
+
+    console.log(dates)
 
     useEffect(() => {
         localStorage.setItem("present", JSON.stringify(present))
@@ -66,9 +90,10 @@ const Screen2 = ({ setParam }) => {
             <div className="drop-downs">
                 {DropDowns.map(d => (
                     <div className="select-container">
-                        <select name={d.type} id={d.type} value={d.type}>
-                            {d.options.map(op => (
-                                <option value={op}>{op}</option>
+                        <select name={d.type} id={d.type}
+                            onChange={(e) => handleShow(d.type, e)}>
+                            {d.options.map((op,i) => (
+                                <option value={i}>{op}</option>
                             ))}
                         </select>
                     </div>
@@ -83,12 +108,12 @@ const Screen2 = ({ setParam }) => {
                         <button className={
                             (present.includes(r.id) ? "present" : "")
                         } onClick={() => handlePresent(r.id)}
-                        disabled={absent.includes(r.id)}>Present</button>
+                            disabled={absent.includes(r.id)}>Present</button>
 
                         <button className={
                             (absent.includes(r.id) ? "absent" : "")
                         } onClick={() => handleAbsent(r.id)}
-                        disabled={present.includes(r.id)}>Absent</button>
+                            disabled={present.includes(r.id)}>Absent</button>
                     </div>
                 ))}
             </div>
